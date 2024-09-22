@@ -24,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
     return BlocConsumer<AuthenticationCubetCubit, AuthenticationCubetState>(
       listener: (context, state) {
         if (state is AuthenticationSucses) {
+          context.read<AuthenticationCubit>().clearFields();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text("Login Success"),
